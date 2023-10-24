@@ -31,6 +31,7 @@ from .flavr import FLAVR, FLAVRNet
 from .gca import GCA
 from .ggan import GGAN
 from .glean import GLEANStyleGANv2
+from .glide import Glide, SuperResText2ImUNet, Text2ImUNet
 from .global_local import (GLDecoder, GLDilationNeck, GLEncoder,
                            GLEncoderDecoder)
 from .guided_diffusion import AblatedDiffusionModel
@@ -98,5 +99,6 @@ __all__ = [
     'ControlStableDiffusion', 'DreamBooth', 'TextualInversion', 'DeblurGanV2',
     'DeblurGanV2Generator', 'DeblurGanV2Discriminator',
     'StableDiffusionInpaint', 'ViCo', 'FastComposer', 'AnimateDiff',
+    'Text2ImUNet', 'Glide', 'SuperResText2ImUNet',
     'UNet3DConditionMotionModel', 'StableDiffusionXL'
 ]
