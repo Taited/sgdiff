@@ -1,4 +1,3 @@
-# Copyright (c) OpenMMLab. All rights reserved.
 import torch
 from mmengine.runner.checkpoint import _load_checkpoint_with_prefix
 

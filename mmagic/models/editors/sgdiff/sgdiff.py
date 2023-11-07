@@ -1,4 +1,3 @@
-# Copyright (c) OpenMMLab. All rights reserved.
 import mmengine
 import torch
 from mmengine.model import is_model_wrapper
