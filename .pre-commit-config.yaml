@@ -43,35 +43,8 @@ repos:
           - mdformat-openmmlab
           - mdformat_frontmatter
           - linkify-it-py
-  - repo: local
-    hooks:
-      - id: update-model-index
-        name: update-model-index
-        description: Collect model information and update model-index.yml
-        entry: .dev_scripts/update_model_index.py
-        additional_dependencies: [mmengine, modelindex, tqdm, rich]
-        language: python
-        files: ^configs/.*\.md$
-        require_serial: true
   - repo: https://github.com/myint/docformatter
     rev: v1.3.1
     hooks:
       - id: docformatter
         args: ["--in-place", "--wrap-descriptions", "79"]
-  - repo: https://github.com/open-mmlab/pre-commit-hooks
-    rev: v0.4.0  # Use the ref you want to point at
-    hooks:
-      - id: check-algo-readme
-      - id: check-copyright
-        args: ["demo", "mmagic", "tests", "tools"]
-      - id: remove-improper-eol-in-cn-docs
-  - repo: local
-    hooks:
-      - id: update-model-zoo
-        name: update-model-zoo
-        description: update model-zoo.yml
-        entry: docs/en/.dev_scripts/update_model_zoo.py
-        additional_dependencies: [mmengine, modelindex, tqdm, rich]
-        language: python
-        files: ^configs/.*\.md$
-        require_serial: true
