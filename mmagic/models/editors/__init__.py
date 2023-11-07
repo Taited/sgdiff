@@ -54,6 +54,7 @@ from .real_basicvsr import RealBasicVSR, RealBasicVSRNet
 from .real_esrgan import RealESRGAN, UNetDiscriminatorWithSpectralNorm
 from .restormer import Restormer
 from .sagan import SAGAN
+from .sgdiff import ClipAttnEmbedding, MM2ImUNet, SGDiff
 from .singan import SinGAN
 from .srcnn import SRCNNNet
 from .srgan import SRGAN, ModifiedVGG, MSRResNet
@@ -99,6 +100,6 @@ __all__ = [
     'ControlStableDiffusion', 'DreamBooth', 'TextualInversion', 'DeblurGanV2',
     'DeblurGanV2Generator', 'DeblurGanV2Discriminator',
     'StableDiffusionInpaint', 'ViCo', 'FastComposer', 'AnimateDiff',
-    'Text2ImUNet', 'Glide', 'SuperResText2ImUNet',
-    'UNet3DConditionMotionModel', 'StableDiffusionXL'
+    'Text2ImUNet', 'Glide', 'SuperResText2ImUNet', 'MM2ImUNet', 'SGDiff',
+    'ClipAttnEmbedding', 'UNet3DConditionMotionModel', 'StableDiffusionXL'
 ]

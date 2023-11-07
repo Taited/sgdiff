@@ -245,7 +245,9 @@ class Glide(BaseModel):
                  init_image: Optional[torch.Tensor] = None,
                  prompt: Optional[str] = None,
                  num_inference_steps: int = 27,
-                 show_progress: bool = False):
+                 show_progress: bool = False,
+                 tokens: Optional[torch.Tensor] = None,
+                 mask: Optional[torch.Tensor] = None):
         """Inference function for upsampling guided diffusion.
 
         Args:
@@ -279,12 +281,14 @@ class Glide(BaseModel):
         timesteps = self.diffusion_scheduler_up.timesteps
 
         # text embedding
-        tokens = self.unet.tokenizer.encode(prompt)
-        tokens, mask = self.unet.tokenizer.padded_tokens_and_mask(tokens, 128)
-        tokens = torch.tensor(
-            [tokens] * batch_size, dtype=torch.bool, device=self.device)
-        mask = torch.tensor(
-            [mask] * batch_size, dtype=torch.bool, device=self.device)
+        if tokens is None or mask is None:
+            tokens = self.unet.tokenizer.encode(prompt)
+            tokens, mask = self.unet.tokenizer.padded_tokens_and_mask(
+                tokens, 128)
+            tokens = torch.tensor(
+                [tokens] * batch_size, dtype=torch.bool, device=self.device)
+            mask = torch.tensor(
+                [mask] * batch_size, dtype=torch.bool, device=self.device)
 
         if show_progress and mmengine.dist.is_main_process():
             timesteps = tqdm(timesteps)
