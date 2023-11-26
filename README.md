@@ -3,16 +3,21 @@
 <a href="https://taited.github.io/sgdiff-project" target="_blank">
   <img src="https://img.shields.io/badge/Project-Page-Green">
 </a>
-<a href="https://arxiv.org/abs/2308.07605">
+<a href="https://arxiv.org/abs/2308.07605" target="_blank">
   <img src="https://img.shields.io/badge/Paper-Arxiv-red">
 </a>
 
 This is the official implementation of SGDiff: A Style Guided Diffusion Model for Fashion Synthesis (ACM MM '23). SGDiff is developed based on the MMagic framework (version V1.1.0). The training scripts and dataset used in this paper will be released soon.
 
 ## Todo List
+To ensure reproducibility, this project was extensively re-implemented based on MMagic. We anticipate a release date for the training code and dataset in late January or early February.
 
 - [ ] Release the training scripts.
 - [ ] Make the dataset publicly available.
+
+## SG-Fashion Dataset Preview
+The SG-Fashion Dataset collects 17,000 images of fashion products sourced from e-commerce websites such as ASOS, Uniqlo, and H&M. We set aside 1,700 of these images as the test set. The dataset covers 72 product categories, encompassing a wide range of garment items.
+![SG-Fashion](/media/SG-Fashion.jpg "Magic Gardens")
 
 ## Installation Guide
 
@@ -45,8 +50,12 @@ Before running inference, download the model checkpoint from the
 After downloading, you can generate images using the SGDiff model by the following command:
 
 ```shell
-python inference.py --ckpt sgdiff.pth --img_path examples/starry_night.jpg
+python inference.py --ckpt sgdiff.pth --img_path examples/starry_night.jpg --prompt "long sleeve jumpsuit"
 ```
+| Prompt                  | sleeveless jumpsuit             | long sleeve jumpsuit             | v-neck jumpsuit                  |
+|:-----------------------:|:-------------------------------:|:-------------------------------:|:-------------------------------:|
+|                         | ![sleeveless jumpsuit](/media/sleeveless%20jumpsuit.png) | ![long sleeve jumpsuit](/media/long%20sleeve%20jumpsuit.png) | ![V-Neck jumpsuit](/media/V-Neck%20jumpsuit.png)  |
+
 
 ## Citation
 
